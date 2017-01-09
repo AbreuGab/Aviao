@@ -62,7 +62,7 @@ AS       := "C:/Program Files (x86)/CodeBlocks/MinGW/bin/as.exe"
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) 
 
 
 
@@ -100,6 +100,14 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix)main.cpp
+
+$(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix): Aviao.cpp $(IntermediateDirectory)/Aviao.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/ProgII/Aviao/Aviao.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Aviao.cpp$(DependSuffix): Aviao.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Aviao.cpp$(DependSuffix) -MM Aviao.cpp
+
+$(IntermediateDirectory)/Aviao.cpp$(PreprocessSuffix): Aviao.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Aviao.cpp$(PreprocessSuffix)Aviao.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

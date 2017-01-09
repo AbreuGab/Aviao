@@ -94,5 +94,7 @@
   </Settings>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="Aviao.h"/>
+    <File Name="Aviao.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
