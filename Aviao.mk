@@ -5,15 +5,15 @@
 ## Debug
 ProjectName            :=Aviao
 ConfigurationName      :=Debug
-WorkspacePath          :=C:/Users/FACOMP/Documents/ProgII
-ProjectPath            :=C:/Users/FACOMP/Documents/ProgII/Aviao
+WorkspacePath          :=C:/Users/FACOMP/Documents/Aviao
+ProjectPath            :=C:/Users/FACOMP/Documents/Aviao/Aviao
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=FACOMP
-Date                   :=09/01/2017
+Date                   :=16/01/2017
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :="C:/Program Files (x86)/CodeBlocks/MinGW/bin/g++.exe"
 SharedObjectLinkerName :="C:/Program Files (x86)/CodeBlocks/MinGW/bin/g++.exe" -shared -fPIC
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/ProgII/Aviao/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/Aviao/Aviao/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
 
@@ -102,7 +102,7 @@ $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix)main.cpp
 
 $(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix): Aviao.cpp $(IntermediateDirectory)/Aviao.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/ProgII/Aviao/Aviao.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/Aviao/Aviao/Aviao.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Aviao.cpp$(DependSuffix): Aviao.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Aviao.cpp$(DependSuffix) -MM Aviao.cpp
 
