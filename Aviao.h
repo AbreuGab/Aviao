@@ -1,22 +1,26 @@
 #ifndef AVIAO_H
 #define AVIAO_H
-#include<iostream>
-#include<string>
+#include <string>
+using std::string;
 
 class Aviao
 {
 public:
     
-    Aviao(const double &);
+    Aviao(double );
     Aviao(const Aviao &);
     Aviao();
-    ~Aviao();
-    
-    serAltura(const int &);
-    
+    void setAltura(double);
+    int getAltura() const; 
+    void exibirStatus()const;
+     ~Aviao();
+     
 private:
-    double altura;
 
+    double altura;
+    static double altMax;
+    string status;
+    
 };
 
 #endif // AVIAO_H
