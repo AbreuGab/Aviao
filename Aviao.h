@@ -7,23 +7,22 @@ class Aviao
 {
 public:
     
-    Aviao(double );
+    Aviao(double,int, int, float, float, string, string );
     Aviao(const Aviao &);
     Aviao();
     void setAltura(double);
     double getAltura() const; 
-    float exibirStatus()const;
-    float exibirAtributos();
+    void exibirAtributos(const Aviao &);
+    bool testeAltura();
      ~Aviao();
      
 private:
     
     int capMax,  nPass;
     float envergadura, comprimento;
-    double altura;
-    static double altMax, modelo;
-    string status;
-    
+    double altura;    
+    string modelo,idAviao; 
+    static double altMax;
 };
 
 #endif // AVIAO_H
