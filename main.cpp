@@ -1,15 +1,12 @@
 #include <iostream>
 using std::cout;
 #include "Aviao.h"
-using std::Aviao;
-using std::exibirStatus;
-using std::getAltura;
-using std::setAltura;
+
 
 int main(int argc, char **argv)
 {
-    
+    Aviao::Aviao();
 	do{
-        
-    }
+        Aviao::setAltura();
+    }while(Aviao::testeAltura)
 }
