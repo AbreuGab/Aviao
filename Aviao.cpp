@@ -1,5 +1,6 @@
 #include <iostream>
 using std::cout;
+using std::endl;
 #include "Aviao.h"
 
 
@@ -26,12 +27,20 @@ void Aviao::setAltura(double alt){
     altura=alt;
 }
 
-int Aviao::getAltura() const{
+double Aviao::getAltura() const{
     return altura;
 }
 
 void Aviao::exibirStatus() const{
-    cout<<status;
+    cout<<'Status '<<status<<endl;
+}
+
+float Aviao::exibirAtributos(){
+    cout<<'Modelo: '<<modelo<<endl;
+    cout<<'Envergadura: '<<envergadura<<endl;
+    cout<<'Comprimento:'<<comprimento<<endl ;
+    cout<<'Capacidade Maxima: '<<capMAx<<endl;
+    cout<<'Numero de Passageiros'<<nPass;
 }
 
 Aviao::~Aviao()

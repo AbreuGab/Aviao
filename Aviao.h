@@ -11,14 +11,17 @@ public:
     Aviao(const Aviao &);
     Aviao();
     void setAltura(double);
-    int getAltura() const; 
-    void exibirStatus()const;
+    double getAltura() const; 
+    float exibirStatus()const;
+    float exibirAtributos();
      ~Aviao();
      
 private:
-
+    
+    int capMax,  nPass;
+    float envergadura, comprimento;
     double altura;
-    static double altMax;
+    static double altMax, modelo;
     string status;
     
 };
