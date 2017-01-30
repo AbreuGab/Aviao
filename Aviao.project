@@ -96,5 +96,9 @@
     <File Name="main.cpp"/>
     <File Name="Aviao.h"/>
     <File Name="Aviao.cpp"/>
+    <File Name="Tripulacao.h"/>
+    <File Name="Tripulacao.cpp"/>
+    <File Name="Data.h"/>
+    <File Name="Data.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

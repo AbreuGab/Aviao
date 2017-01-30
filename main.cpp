@@ -5,8 +5,5 @@ using std::cout;
 
 int main(int argc, char **argv)
 {
-    Aviao::Aviao();
-	do{
-        Aviao::setAltura();
-    }while(Aviao::testeAltura)
+  cout<<"Fala Migo";
 }

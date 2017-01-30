@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=FACOMP
-Date                   :=25/01/2017
+Date                   :=30/01/2017
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :="C:/Program Files (x86)/CodeBlocks/MinGW/bin/g++.exe"
 SharedObjectLinkerName :="C:/Program Files (x86)/CodeBlocks/MinGW/bin/g++.exe" -shared -fPIC
@@ -62,7 +62,7 @@ AS       := "C:/Program Files (x86)/CodeBlocks/MinGW/bin/as.exe"
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Aviao.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tripulacao.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) 
 
 
 
@@ -108,6 +108,22 @@ $(IntermediateDirectory)/Aviao.cpp$(DependSuffix): Aviao.cpp
 
 $(IntermediateDirectory)/Aviao.cpp$(PreprocessSuffix): Aviao.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Aviao.cpp$(PreprocessSuffix)Aviao.cpp
+
+$(IntermediateDirectory)/Tripulacao.cpp$(ObjectSuffix): Tripulacao.cpp $(IntermediateDirectory)/Tripulacao.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/Aviao/Aviao/Tripulacao.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Tripulacao.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Tripulacao.cpp$(DependSuffix): Tripulacao.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Tripulacao.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Tripulacao.cpp$(DependSuffix) -MM Tripulacao.cpp
+
+$(IntermediateDirectory)/Tripulacao.cpp$(PreprocessSuffix): Tripulacao.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Tripulacao.cpp$(PreprocessSuffix)Tripulacao.cpp
+
+$(IntermediateDirectory)/Data.cpp$(ObjectSuffix): Data.cpp $(IntermediateDirectory)/Data.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/Documents/Aviao/Aviao/Data.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Data.cpp$(DependSuffix): Data.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Data.cpp$(DependSuffix) -MM Data.cpp
+
+$(IntermediateDirectory)/Data.cpp$(PreprocessSuffix): Data.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Data.cpp$(PreprocessSuffix)Data.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

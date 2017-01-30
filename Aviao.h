@@ -1,7 +1,9 @@
 #ifndef AVIAO_H
 #define AVIAO_H
+#include "Tripulacao.h"
 #include <string>
 using std::string;
+
 
 class Aviao
 {
@@ -18,10 +20,14 @@ public:
      
 private:
     
-    int capMax,  nPass;
-    float envergadura, comprimento;
+    Tripulacao *ptrTripulacao; 
+    int capMax;
+    int nPass;
+    float envergadura;
+    float comprimento;
     double altura;    
-    string modelo,idAviao; 
+    string modelo;
+    string idAviao; 
     static double altMax;
 };
 
