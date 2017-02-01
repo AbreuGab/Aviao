@@ -7,7 +7,7 @@ using std::endl;
 double Aviao::altMax=1000;
 
 
-//contrutor
+//contrutores
 Aviao::Aviao(double altura,int capMax , int nPass,float enver0gadura, float comprimento, string modelo,string idAviao){
     this->altura=altura;
     this->capMax=capMax;
@@ -17,7 +17,7 @@ Aviao::Aviao(double altura,int capMax , int nPass,float enver0gadura, float comp
     this->modelo=modelo;
     this->idAviao=idAviao;
     }
-//contrutor vazio    
+ 
 Aviao::Aviao()
 {
     altura=0;
@@ -29,7 +29,7 @@ Aviao::Aviao()
     idAviao="XX000";
     }
     
-//contrutor cópia
+
 Aviao::Aviao(const Aviao &p){
     this->altura=p.altura;
     this->capMax=p.capMax;
@@ -41,6 +41,8 @@ Aviao::Aviao(const Aviao &p){
 }
 
 
+
+//métodos da Classe
 void Aviao::setAltura(double alt){
     altura=alt;
 }
@@ -49,7 +51,6 @@ void Aviao::setAltura(double alt){
 double Aviao::getAltura() const{
     return altura;
 }
-
 
 
 void Aviao::exibirAtributos(const Aviao &p){
@@ -68,11 +69,58 @@ bool Aviao::testeAltura(){
     else{
         return false;
     }
-    }
+}
 
+   
+    
+//implementacao dos operadores    
+ostream &operator<<( ostream &output, const Aviao &newAviao)
+{
+    output << newAviao.modelo <<"(" <<newAviao.idAviao <<")";
+    return output;
+}
+
+
+const Aviao & Aviao::operator=(const Aviao &newAviao)
+{
+    this->altura=newAviao.altura;
+    this->capMax=newAviao.capMax;
+    this->nPass=newAviao.nPass;
+    this->envergadura=newAviao.envergadura;
+    this->comprimento=newAviao.comprimento;
+    this->modelo=newAviao.modelo;
+    this->idAviao=newAviao.idAviao;
+    return *this;
+    
+}
+
+bool Aviao::operator==(const Aviao &newAviao) const{
+    if(this->capMax!=newAviao.capMax && this->nPass!=newAviao.nPass && this->envergadura!=newAviao.envergadura &&this->comprimento!=newAviao.comprimento && this->altura!=newAviao.altura && this->modelo!=newAviao.modelo &&this->idAviao!=newAviao.idAviao)
+    {
+       return false; 
+    }
+    return true;
+
+}
+/*Tripulacao *ptrTripulacao; 
+    int capMax;
+    int nPass;
+    float envergadura;
+    float comprimento;
+    double altura;    
+    string modelo;
+    string idAviao; 
+    static double altMax;*/
+    
 Aviao::~Aviao()
 {
-    
+    delete &capMax;
+    delete &nPass;
+    delete &envergadura;
+    delete &comprimento;
+    delete &altura;    
+    delete &modelo;
+    delete &idAviao;     
     
 }
 
