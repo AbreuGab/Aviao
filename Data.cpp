@@ -32,5 +32,8 @@ int Data::verificarData(int dia) const
 
 Data::~Data()
 {
+	delete dia;
+	delete mes;
+	delete ano;
 }
 

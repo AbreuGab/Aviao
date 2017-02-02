@@ -6,121 +6,111 @@ using std::endl;
 
 double Aviao::altMax=1000;
 
+Aviao::Aviao(string mod, string, id, string mt, double h, int d, int m, int a, string pl, string cp, string aC)
+{
+	
+	this->modelo=mod;
+	this->idAviao=id;
+	this->motor=mt;
+	this->altAtual=h;
+	Data dtFab(d,m,a);
+	Tripulacao trip1(pl,cp,aC)
+}
 
-//contrutores
-Aviao::Aviao(double altura,int capMax , int nPass,float enver0gadura, float comprimento, string modelo,string idAviao){
-    this->altura=altura;
-    this->capMax=capMax;
-    this->nPass=nPass;
-    this->envergadura=envergadura;
-    this->comprimento=comprimento;
-    this->modelo=modelo;
-    this->idAviao=idAviao;
-    }
- 
 Aviao::Aviao()
 {
-    altura=0;
-    capMax=1;
-    nPass=1;
-    envergadura=0;
-    comprimento=0;
-    modelo="desconhecido";
-    idAviao="XX000";
-    }
-    
-
-Aviao::Aviao(const Aviao &p){
-    this->altura=p.altura;
-    this->capMax=p.capMax;
-    this->nPass=p.nPass;
-    this->envergadura=p.envergadura;
-    this->comprimento=p.comprimento;
-    this->modelo=p.modelo;
-    this->idAviao=p.idAviao;
+	this->modelo="indefinido";
+	this->idAviao="indefinido";
+	this->motor="indefinido";
+	this->altAtual=0;
+	Data dtFab;
+	Tripulacao trip1;
 }
 
-
-
-//métodos da Classe
-void Aviao::setAltura(double alt){
-    altura=alt;
+Aviao::Aviao(const Aviao &a)
+{
+	this->modelo=a.modelo;
+	this->idAviao=a.idAviao;
+	this->motor=a.motor;
+	this->altAtual=a.altAtual;
+	Data dtFab(a.dtFab);
+	Tripulacao trip1(a.trip1);
 }
 
-
-double Aviao::getAltura() const{
-    return altura;
+double Aviao::dAltr(double d)
+{
+	return altAtual=altAtual+d;
 }
 
-
-void Aviao::exibirAtributos(const Aviao &p){
-    cout<<"Modelo: "<<p.modelo<<
-          "Envergadura: "<<p.envergadura<<
-          "Comprimento:"<<p.comprimento <<
-          "Capacidade Maxima: "<<p.capMax<<
-          "Numero de Passageiros: "<<p.nPass<<
-          "Id da Nave: "<<p.idAviao;
+bool Aviao::testAlt(double h)
+{
+	if(h<=1000&&h>=0){
+		return true;
+	}
+	return false;	
 }
 
-bool Aviao::testeAltura(){
-    if(altura<=1000||altura>=0){
-        return true;
-    }
-    else{
-        return false;
-    }
+void Aviao::intArr()
+{
+	for(int i=0;i<size;i++){
+		pass[I]="";
+	}
 }
 
-   
-    
-//implementacao dos operadores    
+double Aviao::getAlt() const
+{
+	return altAtual;	
+}
+
+void Aviao::insPass(int i, string nome) 
+{
+	pass[i]=nome;
+}
+
+void Aviao::mostrarNomePass()
+{
+	for(int i = 0; i <size; i++)
+		cout <<"[ " <<i<<" ]";
+}
+
+//operadores
 ostream &operator<<( ostream &output, const Aviao &newAviao)
 {
-    output << newAviao.modelo <<"(" <<newAviao.idAviao <<")";
+    output << newAviao.modelo <<"(id:" <<newAviao.idAviao <<")"<<
+	"Motor: "<<newAviao.motor<<
+	"Altura:"<<altAtual<<
+	"Fab: "<<dtFab.dia<<"/"<<dtFab.mes<<"/"<<dtFab.ano<<
+	"Tripulacao: " << trip1.pil <<", "<<trip1.coPil<<", "<<trip1.arChef;
     return output;
 }
 
 
-const Aviao & Aviao::operator=(const Aviao &newAviao)
+const Aviao & Aviao::operator=(const Aviao &a)
 {
-    this->altura=newAviao.altura;
-    this->capMax=newAviao.capMax;
-    this->nPass=newAviao.nPass;
-    this->envergadura=newAviao.envergadura;
-    this->comprimento=newAviao.comprimento;
-    this->modelo=newAviao.modelo;
-    this->idAviao=newAviao.idAviao;
-    return *this;
-    
+    this->modelo=a.modelo;
+	this->idAviao=a.idAviao;
+	this->motor=a.motor;
+	this->altAtual=a.altAtual;
+	Data dtFab(a.dtFab);
+	Tripulacao trip1(a.trip1);    
 }
 
-bool Aviao::operator==(const Aviao &newAviao) const{
-    if(this->capMax!=newAviao.capMax && this->nPass!=newAviao.nPass && this->envergadura!=newAviao.envergadura &&this->comprimento!=newAviao.comprimento && this->altura!=newAviao.altura && this->modelo!=newAviao.modelo &&this->idAviao!=newAviao.idAviao)
-    {
+bool Aviao::operator==(const Aviao &p) const{
+    if(this->modelo!=p.modelo && this->idAviao!=p.idAviao && this->motor!=p.motor && this->dtFab.dia!=p.dtFab.dia &&this->dtFab.mes!=p.dtFab.mes && this->dtFab.ano!=p.dtFab.ano &&this->trip1.pil!=p.trip1.pil && trip1.coPil!=p.trip1.coPil &&trip1.arChef!=p.trip1.arChef)
+	{
        return false; 
     }
     return true;
-
 }
-/*Tripulacao *ptrTripulacao; 
-    int capMax;
-    int nPass;
-    float envergadura;
-    float comprimento;
-    double altura;    
-    string modelo;
-    string idAviao; 
-    static double altMax;*/
+
     
 Aviao::~Aviao()
 {
-    delete &capMax;
-    delete &nPass;
-    delete &envergadura;
-    delete &comprimento;
-    delete &altura;    
     delete &modelo;
-    delete &idAviao;     
+    delete &motor;
+    delete &idAviao;
+    delete &altAtual;
+    delete &ptrTripulacao;    
+    delete &ptrData;
     
 }
-

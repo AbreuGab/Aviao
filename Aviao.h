@@ -13,18 +13,19 @@ class Aviao
     friend ostream &operator<<( ostream &, const Aviao &);
     
 public:
-    
-    Aviao(double,int, int, float, float, string, string );
+
+	Aviao(string ,string, string,double=0, const Tripulacao &, const Data &)
     Aviao(const Aviao &);
-    Aviao();
-    ~Aviao();
-    
-    //métodos da classe
-    void setAltura(double);
-    double getAltura() const; 
-    void exibirAtributos(const Aviao &);
-    bool testeAltura();
-    
+	Aviao();
+	~Aviao();
+	
+	double dAlt(double);
+	bool testAlt(double);
+	void intArr();
+	double getAlt()const;
+	void insPass(int, string);
+	static void mostrarNomePass();
+	
     //operadores
     const Aviao &operator=( const Aviao &);
     bool operator==(const Aviao &) const;
@@ -33,18 +34,17 @@ public:
             return !(*this == newAviao);
     }    
     
-    
 private:
-    
-    Tripulacao *ptrTripulacao; 
-    int capMax;
-    int nPass;
-    float envergadura;
-    float comprimento;
-    double altura;    
-    string modelo;
-    string idAviao; 
-    static double altMax;
+	
+	string modelo;
+	string idAviao;
+	string pass[size];
+	Tripulacao *ptrTripulacao;
+	Data *ptrDtFab;
+	string motor;
+	double altAtual;
+	static int size=5;
+	
 };
 
 #endif // AVIAO_H
