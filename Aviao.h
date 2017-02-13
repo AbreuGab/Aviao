@@ -5,6 +5,7 @@ using std::ostream;
 #include "Tripulacao.h"
 #include <string>
 using std::string;
+#include "Data.h"
 
     
 class Aviao
@@ -14,17 +15,17 @@ class Aviao
     
 public:
 
-	Aviao(string ,string, string,double=0, const Tripulacao &, const Data &)
+	Aviao(string ,string, string, double, int, int, int,string, string, string);
     Aviao(const Aviao &);
 	Aviao();
 	~Aviao();
 	
 	double dAlt(double);
-	bool testAlt(double);
+	bool testAlt();
 	void intArr();
 	double getAlt()const;
-	void insPass(int, string);
-	static void mostrarNomePass();
+	void insPass(int, int);
+	static void attFirm();
 	
     //operadores
     const Aviao &operator=( const Aviao &);
@@ -38,12 +39,13 @@ private:
 	
 	string modelo;
 	string idAviao;
-	string pass[size];
-	Tripulacao *ptrTripulacao;
-	Data *ptrDtFab;
-	string motor;
-	double altAtual;
-	static int size=5;
+    string motor;
+	int pass[10];
+    double altAtual;
+	Tripulacao trip;
+	Data dtFab;	
+    static float firmware;
+	const static double altMax;
 	
 };
 

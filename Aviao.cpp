@@ -1,50 +1,50 @@
+#include "Aviao.h"
 #include <iostream>
+
 using std::cout;
 using std::endl;
-#include "Aviao.h"
 
 
-double Aviao::altMax=1000;
+float firmeware=0.0;
+const double Aviao::altMax=10000;
 
-Aviao::Aviao(string mod, string, id, string mt, double h, int d, int m, int a, string pl, string cp, string aC)
-{
-	
+Aviao::Aviao(string mod, string id, string mt, double h, int d, int m, int a, string pil, string coPil, string arC)
+:dtFab(d,m,a), trip(pil,coPil,arC)
+{	
 	this->modelo=mod;
 	this->idAviao=id;
 	this->motor=mt;
 	this->altAtual=h;
-	Data dtFab(d,m,a);
-	Tripulacao trip1(pl,cp,aC)
+	
 }
 
 Aviao::Aviao()
+:dtFab(), trip()
 {
 	this->modelo="indefinido";
 	this->idAviao="indefinido";
 	this->motor="indefinido";
 	this->altAtual=0;
-	Data dtFab;
-	Tripulacao trip1;
+	
 }
 
 Aviao::Aviao(const Aviao &a)
+:trip(a.trip), dtFab(a.dtFab)
 {
 	this->modelo=a.modelo;
 	this->idAviao=a.idAviao;
 	this->motor=a.motor;
 	this->altAtual=a.altAtual;
-	Data dtFab(a.dtFab);
-	Tripulacao trip1(a.trip1);
 }
 
-double Aviao::dAltr(double d)
+double Aviao::dAlt(double d)
 {
 	return altAtual=altAtual+d;
 }
 
-bool Aviao::testAlt(double h)
+bool Aviao::testAlt()
 {
-	if(h<=1000&&h>=0){
+	if(altAtual<=1000&&altAtual>=0){
 		return true;
 	}
 	return false;	
@@ -52,35 +52,37 @@ bool Aviao::testAlt(double h)
 
 void Aviao::intArr()
 {
-	for(int i=0;i<size;i++){
-		pass[I]="";
+	for(int i=0;i<5;i++){
+		pass[i]=0;
 	}
 }
+
 
 double Aviao::getAlt() const
 {
 	return altAtual;	
 }
 
-void Aviao::insPass(int i, string nome) 
+
+void Aviao::insPass(int i, int nome) 
 {
 	pass[i]=nome;
 }
 
-void Aviao::mostrarNomePass()
+
+void Aviao::attFirm()
 {
-	for(int i = 0; i <size; i++)
-		cout <<"[ " <<i<<" ]";
+    firmeware=firmeware+0.1;
 }
 
 //operadores
-ostream &operator<<( ostream &output, const Aviao &newAviao)
+ostream &operator<<( ostream &output, const Aviao &a)
 {
-    output << newAviao.modelo <<"(id:" <<newAviao.idAviao <<")"<<
-	"Motor: "<<newAviao.motor<<
-	"Altura:"<<altAtual<<
-	"Fab: "<<dtFab.dia<<"/"<<dtFab.mes<<"/"<<dtFab.ano<<
-	"Tripulacao: " << trip1.pil <<", "<<trip1.coPil<<", "<<trip1.arChef;
+    output << a.modelo <<"(id:" <<a.idAviao <<")"<<
+	"Motor: "<<a.motor<<
+	"Altura:"<<a.altAtual<<
+	"Fab: "<<a.dtFab<<
+	"Tripulacao: " <<a.trip;
     return output;
 }
 
@@ -91,12 +93,12 @@ const Aviao & Aviao::operator=(const Aviao &a)
 	this->idAviao=a.idAviao;
 	this->motor=a.motor;
 	this->altAtual=a.altAtual;
-	Data dtFab(a.dtFab);
-	Tripulacao trip1(a.trip1);    
+	this->trip = a.trip;
+    this->dtFab = a.dtFab;
 }
-
+//falta verificar o vetor
 bool Aviao::operator==(const Aviao &p) const{
-    if(this->modelo!=p.modelo && this->idAviao!=p.idAviao && this->motor!=p.motor && this->dtFab.dia!=p.dtFab.dia &&this->dtFab.mes!=p.dtFab.mes && this->dtFab.ano!=p.dtFab.ano &&this->trip1.pil!=p.trip1.pil && trip1.coPil!=p.trip1.coPil &&trip1.arChef!=p.trip1.arChef)
+    if(this->modelo!=p.modelo || this->idAviao!=p.idAviao || this->motor!=p.motor || this->altAtual!=p.altAtual || this->dtFab!=p.dtFab || this->trip!=p.trip)
 	{
        return false; 
     }
@@ -110,7 +112,7 @@ Aviao::~Aviao()
     delete &motor;
     delete &idAviao;
     delete &altAtual;
-    delete &ptrTripulacao;    
-    delete &ptrData;
+    delete &trip;    
+    delete &dtFab;
     
 }
