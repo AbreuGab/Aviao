@@ -52,8 +52,8 @@ bool Aviao::testAlt()
 
 void Aviao::intArr()
 {
-	for(int i=0;i<5;i++){
-		pass[i]=0;
+	for(int i=0;i<10;i++){
+		firmHist[i]=0;
 	}
 }
 
@@ -64,9 +64,9 @@ double Aviao::getAlt() const
 }
 
 
-void Aviao::insPass(int i, int nome) 
+void Aviao::iccHist(int i, float vers) 
 {
-	pass[i]=nome;
+	firmHist[i]=vers;
 }
 
 

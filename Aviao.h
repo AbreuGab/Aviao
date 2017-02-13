@@ -24,7 +24,7 @@ public:
 	bool testAlt();
 	void intArr();
 	double getAlt()const;
-	void insPass(int, int);
+	void iccHist(int, float);
 	static void attFirm();
 	
     //operadores
@@ -40,7 +40,7 @@ private:
 	string modelo;
 	string idAviao;
     string motor;
-	int pass[10];
+	float firmHist[10];
     double altAtual;
 	Tripulacao trip;
 	Data dtFab;	
