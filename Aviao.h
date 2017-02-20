@@ -8,22 +8,17 @@ using std::string;
 #include "Data.h"
 
     
-class Aviao
+class Aviao: public Aeronave
 {
     
     friend ostream &operator<<( ostream &, const Aviao &);
     
 public:
 
-	Aviao(string ,string, string, double, int, int, int,string, string, string);
+	Aviao(string ,string, string, double, int, int, int);
     Aviao(const Aviao &);
 	Aviao();
 	~Aviao();
-	
-	double dAlt(double);
-	bool testAlt();
-	void intArr();
-	double getAlt()const;
 	void iccHist(int, float);
 	static void attFirm();
 	
@@ -33,7 +28,7 @@ public:
     bool operator!=( const Aviao &newAviao) const
     {
             return !(*this == newAviao);
-    }    
+    }; 
     
 private:
 	
@@ -41,9 +36,7 @@ private:
 	string idAviao;
     string motor;
 	float firmHist[10];
-    double altAtual;
 	Tripulacao trip;
-	Data dtFab;	
     static float firmware;
 	const static double altMax;
 	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="Aviao" InternalType="Console">
+<CodeLite_Project Name="Aviao" InternalType="Console" Version="10.0.0">
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
@@ -100,5 +100,11 @@
     <File Name="Tripulacao.cpp"/>
     <File Name="Data.h"/>
     <File Name="Data.cpp"/>
+    <File Name="Aeronave.h"/>
+    <File Name="Aeronave.cpp"/>
+    <File Name="Helicoptero.h"/>
+    <File Name="Helicoptero.cpp"/>
+    <File Name="Cargueiro.h"/>
+    <File Name="Cargueiro.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
