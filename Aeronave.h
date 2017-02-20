@@ -5,6 +5,7 @@
 class Aeronave
 {
 public:
+
 	Aeronave(double, int, int, int);
 	Aeronave(cosnt Aviao &);
 	~Aeronave();

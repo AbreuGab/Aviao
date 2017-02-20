@@ -6,6 +6,7 @@ using std::ostream;
 #include <string>
 using std::string;
 #include "Data.h"
+#include "Aeronave.h"
 
     
 class Aviao: public Aeronave

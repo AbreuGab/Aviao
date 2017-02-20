@@ -45,7 +45,8 @@ bool Cargueiro::testP()
 //operadores
 ostream &operator<<( ostream &output, const Cargueiro &a)
 {
-    output <<"Carga: "<<a.carga<<
+    output <<static_cast<Aviao>(a)<<
+    "Carga: "<<a.carga<<
 	"Carga Máxima: "<<a.cargaMax<<
     return output;
 }
@@ -55,10 +56,11 @@ const Cargueiro & Cargueiro::operator=(const Cargueiro &a)
 {
 	this->carga=a.carga;
     this->cargaMax = a.cargaMax;
+    this->Aviao=a.Aviao
 }
 
 bool Cargueiro::operator==(const Cargueiro &a) const{
-    if(this->carga!=a.carga && this->cargaMax!=a.cargaMax)
+    if(this->carga!=a.carga || this->cargaMax!=a.cargaMax||this->Aviao!=a.Aviao)
 	{
        return false; 
     }

@@ -2,6 +2,9 @@
 #define HELICOPTERO_H
 #include "string"
 using std::cout;
+#include <ostream>
+using std::ostream;
+#include "Aeronave.h"
 
 class Helicoptero: public Aeronave
 {

@@ -1,5 +1,8 @@
 #ifndef CARGUEIRO_H
 #define CARGUEIRO_H
+#include "Aviao.h"
+#include <ostream>
+using std::ostream;
 
 
 class Cargueiro: public Aviao
